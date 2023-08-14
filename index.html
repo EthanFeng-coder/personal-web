@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethan/yiwei feng- cv</title>
+    <!-- Add the Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <!-- Add your custom CSS file here (if you have one) -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="bg-light text-center py-5">
+        <div class="container">
+            <h5 class="display-4">Ethan/yiwei feng</h5>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a class="nav-link" href="#about">About Me</a></li>
+                <li class="list-inline-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="list-inline-item"><a class="nav-link" href="#experience">Work Experience</a></li>
+                <li class="list-inline-item"><a class="nav-link" href="#education">Education</a></li>
+                <li class="list-inline-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                Hi! I'm Ethan, a passionate programmer with a Master's degree in Information Technology and Systems from the University of Canberra.
+                I'm fluent in English, Japanese, Cantonese, and Mandarin, which allows me to work effectively with diverse teams and clients worldwide.
+                My coding journey began with Python, but I've expanded my skills to include C# and PHP, enabling me to tackle various software development projects.
+            </p>
+        </div>
+    </section>
+
+
+    <section id="skills" class="bg-light py-5">
+        <div class="container">
+            <h2 class="section-heading">Skills</h2>
+            <div class="skills">
+                <div class="skill">
+                    <i class="fa-brands fa-python fa-beat" style="color: #c3b518;"></i>
+                    <span>Python</span>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-cuttlefish fa-lg" style="color: purple;"></i>
+                    <span>C#</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-php fa-shake" style="color: #157fc1;"></i>
+                    <span>PHP</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-solid fa-language fa-bounce" style="color: #e32dfb;"></i>
+                    <span>English</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-solid fa-earth-asia fa-spin" style="color: #1f13c3;"></i>
+                    <span>Japanese</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-solid fa-language fa-flip" style="color: #c10b0b;"></i>
+                    <span>Mandarin</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-solid fa-server fa-fade" style="color: #1fb23d;"></i>
+                    <span>Linux Server</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="section-heading">Work Experience</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="experience-card">
+                        <h3>Lecturer</h3>
+                        <p class="text-muted">Wentworth Institution</p>
+                        <p class="text-muted">July 2023 - Present</p>
+                        <ul>
+                            <li>Delivered lectures on programming languages and software development.</li>
+                            <li>Provided guidance and mentorship to students on their projects.</li>
+                            <li>Contributed to curriculum development and course improvement initiatives.</li>
+                        </ul>
+                        <p class="text-muted">Website: <a href="https://www.win.edu.au/" target="_blank" rel="noopener noreferrer">https://www.win.edu.au</a></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="experience-card">
+                        <h3>Web Developer Intern</h3>
+                        <p class="text-muted">On9 PTY</p>
+                        <p class="text-muted">August 2022 - December 2022</p>
+                        <ul>
+                            <li>Assisted in building responsive and user-friendly web applications.</li>
+                            <li>Worked closely with senior developers to troubleshoot and debug issues.</li>
+                            <li>Contributed to the development and maintenance of company websites.</li>
+                        </ul>
+                        <p class="text-muted">Website: <a href="https://www.on9.com.au/" target="_blank" rel="noopener noreferrer">https://www.on9.com.au</a></p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="bg-light py-5">
+        <div class="container">
+            <h2 class="section-heading">Education</h2>
+            <div class="education-card fade-in">
+                <h3>Master of Information Technology and System</h3>
+                <p class="text-muted">University of Canberra</p>
+                <p class="text-muted">2021 - 2023</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-heading">Contact</h2>
+            <form id="contact-form" method="post" action="submit.php">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="contact-info">Email/Phone:</label>
+                    <input type="text" id="contact-info" name="contact_info" class="form-control" required placeholder="Enter your email or phone number">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" class="form-control" rows="5" required placeholder="Enter your message"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="verification">Enter the code below:</label>
+                    <input type="text" id="verification" name="verification" class="form-control" required>
+                    <img src="generate_captcha.php" alt="CAPTCHA Image" class="captcha-image">
+                </div>
+                <button type="button" class="btn btn-primary" id="submit-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Add the Bootstrap, Popper.js, and Lightbox.js CDNs here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/85e65888f4.js"></script>
+    <script src="https://kit.fontawesome.com/2b64ab41c8.js" crossorigin="anonymous"></script>
+    <!-- Add your custom JavaScript file here (if you have one) -->
+    <script src="script.js"></script>
+</body>
+
+</html>

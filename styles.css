@@ -1,0 +1,248 @@
+/* styles.css */
+
+/* Add some general styles */
+body {
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
+    color: #333; /* Dark gray text color */
+}
+
+.container {
+    max-width: 800px;
+}
+
+/* Style the header section */
+header {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    text-align: center;
+}
+
+header h1 {
+    color: #007bff;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #6c757d;
+    font-size: 1.2rem;
+}
+
+/* Style the navigation menu */
+.navbar {
+    background-color: #007bff;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+/* Style the About Me section */
+#about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+#about h2 {
+    color: #007bff;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style the Skills section */
+.progress-bar {
+    background-color: #007bff;
+}
+
+
+/* Style the Projects section */
+#projects .card {
+    border: none;
+}
+
+#projects .card-header {
+    background-color: #f8f9fa;
+    border: none;
+}
+
+/* Style the Achievements section */
+#achievements img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the Contact section */
+#skills {
+    padding: 30px 0;
+}
+#skills h2{
+    text-align: justify;
+}
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill {
+    font-size: 1.2rem;
+    text-align: justify;
+    margin: 0 20px;
+}
+
+.skill i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.skill span {
+    font-weight: bold;
+}
+.section-heading {
+    color: #007bff;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.section-heading {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Style the Work Experience section */
+#experience {
+    padding: 50px 0;
+}
+#experience h2{
+    text-align: justify;
+}
+.section-heading {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.experience-card {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+}
+
+.experience-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.experience-card p.text-muted {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.experience-card ul {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.experience-card ul li {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color: #333;
+}
+/* Animation keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade-in animation class */
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
+/* Apply the fade-in animation to the Education card */
+#education h2{
+    text-align: justify;
+}
+.education-card {
+    padding: 20px;
+
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+    animation-fill-mode: both; /* Make sure to apply both the initial and final styles */
+}
+
+
+.education-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.education-card p.text-muted {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+/* Style the contact form */
+#contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
