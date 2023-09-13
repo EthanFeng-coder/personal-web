@@ -123,7 +123,7 @@
     <section id="contact" class="py-5">
         <div class="container">
             <h2 class="section-heading">Contact</h2>
-            <form id="contact-form" method="post" action="submit.php">
+            <form id="contact-form">
                 <div class="form-group">
                     <label for="name">Your Name:</label>
                     <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your name">
@@ -139,9 +139,9 @@
                 <div class="form-group">
                     <label for="verification">Enter the code below:</label>
                     <input type="text" id="verification" name="verification" class="form-control" required>
-                    <img src="generate_captcha.php" alt="CAPTCHA Image" class="captcha-image">
+                    <canvas id="captcha-canvas" width="200" height="60"></canvas>
                 </div>
-                <button type="button" class="btn btn-primary" id="submit-btn">Submit</button>
+                <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
             </form>
         </div>
     </section>
@@ -152,7 +152,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/85e65888f4.js"></script>
     <script src="https://kit.fontawesome.com/2b64ab41c8.js" crossorigin="anonymous"></script>
-    <!-- Add your custom JavaScript file here (if you have one) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6E7P137R0P"></script>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
     <script src="script.js"></script>
 </body>
 
