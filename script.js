@@ -3,7 +3,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6E7P137R0P');
 
-  function generateCaptcha() {
+function generateCaptcha() {
     var chars = '123456789abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
     var captchaLength = 4;
     var captcha = '';
@@ -90,6 +90,14 @@ document.getElementById('contact-form').addEventListener('submit', function(even
       generateCaptcha(); // Generate a new CAPTCHA
   }
 });
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
