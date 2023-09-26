@@ -246,3 +246,14 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+.achievements-row {
+    display: flex; /* Makes it a flexbox container */
+    justify-content: space-between; /* Spacing between each achievement card */
+    flex-wrap: wrap; /* Allows the items to wrap if they don't fit in a single row */
+}
+
+.achievement-card {
+    width: calc(33.333% - 20px); /* Divide by 3 since there are 3 cards, and subtract a bit for spacing */
+    margin: 10px; /* Optional margin for spacing */
+}
