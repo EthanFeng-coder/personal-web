@@ -13,9 +13,14 @@ body {
 
 /* Style the header section */
 header {
-    background-color: #f8f9fa;
-    padding: 40px 0;
-    text-align: center;
+    background-color: rgba(248, 249, 250, 0); /* Start with a transparent background */
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; /* Keep it above other elements */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    background-color: transparent;
+    height: 160px;
+    padding: 20px 0;
 }
 
 header h1 {
@@ -29,6 +34,53 @@ header p {
     font-size: 1.2rem;
 }
 
+.name-header {
+    text-align: center;
+    padding: 0px 0;
+    position: relative;
+    height: px;
+}
+
+.display-4 {
+    margin: 0;
+    font-weight: bold;
+    color: #333; /* Change to your preferred color */
+}
+
+.primary-name {
+    font-size: 2.2rem; /* Adjust based on your preference */
+    transition: all 0.3s ease;
+}
+
+.secondary-name {
+    font-size: 1.2rem; /* Adjust based on your preference */
+    color: #777; /* A softer color for the secondary name to make a distinction */
+    transition: all 0.3s ease;
+}
+
+.name-header:hover .primary-name {
+    color: #555; /* A subtle color change on hover to add interactivity */
+}
+
+.name-header:hover .secondary-name {
+    color: #999; /* A subtle color change on hover */
+}
+
+.affiliation-logo {
+    width: 20px;  /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+    margin-left: 5px; /* Space between name and logo */
+    vertical-align: middle; /* Align it with the text */
+}
+
+.member-id {
+    margin-left: 5px; /* Space between logo and member ID */
+    font-size: 1rem; /* Adjust font size to match the name's font size */
+    color: #666; /* Adjust color as needed */
+    vertical-align: middle; /* Align it with the text */
+}
+
+
 /* Style the navigation menu */
 .navbar {
     background-color: #007bff;
@@ -37,12 +89,40 @@ header p {
 .navbar-brand {
     color: #fff;
     font-size: 1.8rem;
+    float: left; /* Make sure brand stays to the left */
+}
+
+.navbar-nav {
+    display: inline-block; /* Add this if your nav-items are nested inside this */
+}
+
+.nav-item {
+    display: inline-block; /* makes items stack horizontally */
+    margin-right: 10px; /* Add spacing between horizontal items */
+    margin-bottom: 0; /* remove this line */
 }
 
 .navbar-nav .nav-link {
     color: #fff;
     font-size: 1.2rem;
 }
+
+.nav-link {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center; /* horizontally center the text */
+    line-height: normal; /* adjust as needed for vertical centering */
+}
+
+
+.nav-link:hover {
+    background-color: #f5f5f5;
+}
+
+
+
 
 /* Style the About Me section */
 #about p {
@@ -86,29 +166,52 @@ header p {
 #skills {
     padding: 30px 0;
 }
-#skills h2{
-    text-align: justify;
+
+#skills h2 {
+    text-align: left;
 }
+
 .skills {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between; 
+    max-width: 900px; 
+    margin: 0 auto; 
 }
 
 .skill {
     font-size: 1.2rem;
-    text-align: justify;
-    margin: 0 20px;
+    margin: 0 20px 20px 20px;  
+    width: calc(50% - 40px); 
+    display: flex;
+    align-items: center;
+    gap: 15px; 
 }
 
 .skill i {
     font-size: 2rem;
-    margin-bottom: 10px;
 }
 
 .skill span {
     font-weight: bold;
+    flex: 1; 
 }
+
+.progress-container {
+    width: 50%; 
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden; 
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 10px;
+}
+
+
+
 .section-heading {
     color: #007bff;
     font-size: 3rem;

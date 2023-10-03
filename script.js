@@ -90,13 +90,24 @@ document.getElementById('contact-form').addEventListener('submit', function(even
       generateCaptcha(); // Generate a new CAPTCHA
   }
 });
+
+$(document).ready(function() {
+  $('a.nav-link[href^="#"]').click(function(event) {
+      event.preventDefault();
+      var target = $($(this).attr('href'));
+      if (target.length) {
+          $('html, body').animate({
+              scrollTop: target.offset().top - 130
+          }, 300);
+      }
+  });
+});
+
+
   
   
   
-  
-  
-  
-  
+
   
   
   
