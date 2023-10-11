@@ -103,10 +103,97 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  // When "HTB solutions" link is clicked
+  $(document).ready(function() {
+    // When the HTB link is clicked
+    $('a[href="#htb"]').on('click', function(e) {
+        e.preventDefault();
+        
+        // Hide all sections except for HTB
+        $('.page-section').attr('hidden', true);
+        $('#htb').removeAttr('hidden');
 
-  
-  
-  
+        // Hide the lab sections
+        $('.lab-content').attr('hidden', true);
+        
+        // Restore all lab tags
+        $('.lab-item').removeAttr('hidden');
+        
+        // Hide the go-back button
+        if (document.getElementById('go-back-btn')) {
+            document.getElementById('go-back-btn').setAttribute('hidden', 'true');
+        }
+
+        // Animate the scroll to the HTB section
+        $('html, body').animate({
+            scrollTop: $('#htb').offset().top -150
+        }, 300);
+    });
+
+    // When other links are clicked
+    $('a.nav-link').not('a[href="#htb"]').on('click', function(e) {
+        e.preventDefault();
+        var targetSection = $(this).attr('href');
+        if (document.getElementById('go-back-btn')) {
+          document.getElementById('go-back-btn').setAttribute('hidden', 'true');
+      }
+        
+        // Show all sections
+        $('.page-section').removeAttr('hidden');
+         // Hide it initially
+        
+        // Keep the HTB section hidden
+        $('#htb').attr('hidden', true);
+        
+        // Scroll to the targeted section
+        $('html, body').animate({
+            scrollTop: $(targetSection).offset().top - 130
+        }, 300);
+    });
+});
+});
+
+function toggleLabDetails(labId) {
+  let labElement = document.getElementById(labId);
+  if (labElement.hasAttribute('hidden')) {
+      labElement.removeAttribute('hidden');
+  } else {
+      labElement.setAttribute('hidden', 'true');
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  let labSelections = document.querySelectorAll('.lab-item');
+  let labContents = document.querySelectorAll('.lab-content'); // Assuming you have multiple contents
+  let backButton = document.createElement('button');
+
+  // Configure the back button
+  backButton.innerText = "Go Back";
+  backButton.setAttribute('hidden', 'true'); // Hide it initially
+  backButton.addEventListener('click', function() {
+      labContents.forEach(content => content.setAttribute('hidden', 'true'));
+      labSelections.forEach(item => item.removeAttribute('hidden'));
+      backButton.setAttribute('hidden', 'true');
+      backButton.id = 'go-back-btn'; // Add this line to set the id for styling
+  });
+  document.body.appendChild(backButton); // Add it to the body once
+
+  labSelections.forEach((item, index) => {
+      item.addEventListener('click', function() {
+          labSelections.forEach(item => item.setAttribute('hidden', 'true'));
+          
+          // Only show the content corresponding to the clicked lab
+          labContents[index].removeAttribute('hidden'); 
+          
+          backButton.removeAttribute('hidden');
+      
+      });
+  });
+});
+
+
+
 
   
   
