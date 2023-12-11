@@ -33,25 +33,32 @@ $(function () {
 
   // page loading
   $(document).ready(function () {
-    anime({
-      targets: ".art-preloader .art-preloader-content",
-      opacity: [0, 1],
-      delay: 200,
-      duration: 600,
-      easing: "linear",
-      complete: function (anim) {},
-    });
-    anime({
-      targets: ".art-preloader",
-      opacity: [1, 0],
-      delay: 2200,
-      duration: 400,
-      easing: "linear",
-      complete: function (anim) {
+    // Check if it's the index page
+    if (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html')) {
+        anime({
+          targets: ".art-preloader .art-preloader-content",
+          opacity: [0, 1],
+          delay: 200,
+          duration: 600,
+          easing: "linear",
+          complete: function (anim) {}
+        });
+        anime({
+          targets: ".art-preloader",
+          opacity: [1, 0],
+          delay: 2200,
+          duration: 400,
+          easing: "linear",
+          complete: function (anim) {
+            $(".art-preloader").css("display", "none");
+          }
+        });
+    } else {
+        // Directly hide the preloader for other pages
         $(".art-preloader").css("display", "none");
-      },
-    });
-  });
+    }
+});
+
 
   var bar = new ProgressBar.Line(preloader, {
     strokeWidth: 1.7,
@@ -655,3 +662,13 @@ $(function () {
     });
   });
 });
+
+
+$(document).ready(function() {
+  if (window.location.pathname.includes('index.html')) {
+    $('#menuHome').addClass('current-menu-item');
+  } else if (window.location.pathname.includes('contact.html')) {
+    $('#menuContact').addClass('current-menu-item');
+  }
+});
+
