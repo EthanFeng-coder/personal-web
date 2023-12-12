@@ -769,11 +769,6 @@ document.getElementById('contact-form').addEventListener('submit', function(even
   }
 });
 
-function loadContactContent() {
-  loadContent('contact.html', function() {
-    // Wait a bit before generating the CAPTCHA
-    setTimeout(generateCaptcha(), 1000); // Adjust delay as needed
-  });
-}
+
 
 
