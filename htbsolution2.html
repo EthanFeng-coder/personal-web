@@ -422,9 +422,106 @@
                   <div class="row">
                     <!-- col -->
                     <div class="col-lg-12">
-                      <!-- section title -->
-                      <div class="art-section-title">
-                      </div>
+                        <div class="art-title-frame">
+                            <!-- title -->
+                            <h4>Footprinting Lab Easy</h4>
+                          </div>
+                          <section>
+                            <h5>Initial Reconnaissance with nmap</h5>
+                            <p style="color:#ffc107;">Using the following <strong>nmap</strong> command, we began our initial reconnaissance:</p>
+                            <pre class="highlight"><code>nmap -sV -T4 -p- -A 10.129.202.41</code></pre>
+                            <p style="color:#ffc107;">The results showed various services and ports open:</p>
+                            <img src="1696999163372.jpg" alt="">
+                        </section>
+                    
+                        <section>
+                            <h5>NFS Services Exploration</h5>
+                            <p style="color:#ffc107;">From the nmap scan, we identified NFS services. To explore further:</p>
+                            <ul>
+                                <li>Created a directory for mount: <code>sudo mkdir /mnt/TechSupport</code></li>
+                                <li>Mounted the remote directory: <code>sudo mount -t nfs 10.129.202.41:/TechSupport TechSupport</code></li>
+                            </ul>
+                            
+                            <p style="color:#ffc107;">Contents inside the 'TechSupport' directory:</p>
+                            <img src="nfsfile.png" alt="NFS Result">
+                            <p style="color:#ffc107;">Try to cat one of the flie is empty then I use <code>ls -la</code> to see the detial</p>
+                            <img src="nfsdetial.png" alt="NFS Result">
+                            <p style="color:#ffc107;">We can see ticket4238791283782.txt has something</p>
+                            <pre class="highlight"><code>cat ticket4238791283782.txt</code></pre>
+                            <p style="color:#ffc107;">we get the conversation below</p>
+                            <p style="color:#ffc107;">Started on November 10, 2021 at 01:27 PM London time GMT (GMT+0200)</p>
+                            <div class="conversation">
+                                <p><strong>01:27 PM | Operator:</strong> Hello,.<br>So what brings you here today?</p>
+                                <p><strong>01:27 PM | alex:</strong> hello</p>
+                                <p><strong>01:27 PM | Operator:</strong> Hey alex!<br>What do you need help with?</p>
+                                <p><strong>01:36 PM | alex:</strong> I run into an issue with the web config file on the system for the smtp server. do you mind to take a look at the config?</p>
+                                <p><strong>01:38 PM | Operator:</strong> Of course</p>
+                                <p><strong>01:42 PM | alex:</strong> here it is:</p>
+                                <pre class="highlight">
+                        smtp {
+                            host=smtp.web.dev.inlanefreight.htb
+                            #port=25
+                            ssl=true
+                            <span style="background-color: red;">user="alex"</span>
+                            <span style="background-color: red">password="lol123!mD"</span>
+                            <span style="background-color: red;">from="alex.g@web.dev.inlanefreight.htb"</span>
+                        }
+                        securesocial {
+                            onLoginGoTo=/
+                            onLogoutGoTo=/login
+                            ssl=false
+                            userpass {
+                                withUserNameSupport=false
+                                sendWelcomeEmail=true
+                                enableGravatarSupport=true
+                                signupSkipLogin=true
+                                tokenDuration=60
+                                tokenDeleteInterval=5
+                                minimumPasswordLength=8
+                                enableTokenJob=true
+                                hasher=bcrypt
+                            }
+                            cookie {
+                                # name=id
+                                # path=/login
+                                # domain="10.129.2.59:9500"
+                                httpOnly=true
+                                makeTransient=false
+                                absoluteTimeoutInMinutes=1440
+                                idleTimeoutInMinutes=1440
+                            }
+                        }
+                        </pre>
+                            </div>
+                            <!-- Additional content about the NFS exploration. -->
+                        </section>
+                    
+                        <!-- Additional sections based on your narrative ... -->
+                    
+                        <section>
+                            <h5>Remote Desktop Connection</h5>
+                            <p style="color:#ffc107;">With the obtained credentials, an attempt was made to access the system using Remote Desktop:</p>
+                            <ul>
+                                <li>Installed necessary tools: <code>sudo apt-get install rdesktop</code></li>
+                                <li>Initiated connection: <code>rdesktop 10.129.202.41</code></li>
+                            </ul>
+                            <img src="xfreerdpresult.png" alt="RDP Result">
+                            <p style="color:#ffc107;">Try login Microsoft sql server not success</p>
+                            <img src="trysql.png" alt="trysql result">
+                            <p style="color:#ffc107;">search the computer file see what we can get then we get a important.txt</p>
+                            <img src="important.png" alt="find important.txt">
+                        </section>
+                        <section>
+                            <h5>Use the credentials</h5>
+                            <p style="color:#ffc107;">Try the credentials on sql server still not works</p>
+                            <img src="sql.png" alt="">
+                            <pre class="highlight"><code>xfreerdp /v:10.129.202.41 /u:Administrator /p:'87N1ns@slls83’</code></pre>
+                            <img src="admin.png" alt="">
+                            <p style="color:#ffc107;">Try to run the Microsoft sql server as a Administrator it works</p>
+                            <img src="sqladmin.png" alt="">
+                            <p style="color:#ffc107;">Search the database get the result</p>
+                            <img src="result.png" alt="">
+                        </section>
                       <!-- section title end -->
                     </div>
                     <!-- col end -->
@@ -562,7 +659,7 @@
                   <ul class="main-menu">
                     <!-- menu item -->
                     <li class="menu-item current-menu-item">
-                      <a href="index.html">Home</a>
+                        <a href="htbsolution2.html">Footprinting Lab Medium</a>
                     </li>
                     <!-- menu item -->
                     <li class="menu-item menu-item-has-children">
@@ -575,7 +672,7 @@
                         </li>
                         <!-- lvl 2 nav link -->
                         <li class="menu-item">
-                          <a href="htbsolution2.html">Footprinting Lab Medium</a>
+                            <a href="index.html">Home</a>
                         </li>
                       </ul>
                       <!-- sub menu end -->

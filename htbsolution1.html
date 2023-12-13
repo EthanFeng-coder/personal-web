@@ -251,13 +251,7 @@
                 <a href="mailto:s903586818@gmail.com" data-no-swup>
                   <i class="fas fa-envelope"></i>
                 </a>
-                
-                <!-- social link 
-                <a href="#." target="_blank"><i class="fab fa-github"></i></a>
-                 
-                <a href="#." target="_blank"><i class="fab fa-github"></i></a>
               
-                <a href="#." target="_blank"><i class="fab fa-twitter"></i></a> -->
               </div>
               <!-- sidebar social end -->
             </div>
@@ -375,11 +369,58 @@
                   <div class="row">
                     <!-- col -->
                     <div class="col-lg-12">
-                      <!-- section title -->
-                      <div class="art-section-title">
-                        <!-- title frame -->
-                        <!-- title frame end -->
+                      <div class="art-title-frame">
+                        <!-- title -->
+                        <h4>Footprinting Lab Easy</h4>
                       </div>
+                      <section>
+                        <h5>Initial Reconnaissance with nmap</h5>
+                        <p style="color:#ffc107;">First, we'll start with an <strong>nmap</strong> scan:</p>
+                        <pre class="highlight"><code>nmap -sV -T4 -p- 10.129.83.25</code></pre>
+                        <img src="1696909097227.jpg" alt="Nmap result">
+                        <p style="color:#ffc107;">From the Nmap scan, we can identify a few open ports and their associated services:</p>
+                        <ul>
+                            <li><strong>21/tcp:</strong> This port is open and running the FTP service (ProFTPD).</li>
+                            <li><strong>22/tcp:</strong> OpenSSH is running on this port, indicating that SSH (Secure Shell) is available for potential remote access.</li>
+                            <li><strong>53/tcp:</strong> This port is associated with domain services, and it's running ISC BIND, which is a widely used DNS server software.</li>
+                            <li><strong>2121/tcp:</strong> Interestingly, there's another instance of ProFTPD running on this non-standard port for FTP.</li>
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <h5>FTP Enumeration</h5>
+                        <p style="color:#ffc107;">Given that FTP ports are open and we have potential credentials, it's worth trying to see if we can access any files or directories that might provide further insight or leverage for exploitation.</p>
+                        <p style="color:#ffc107;">Using the <code>wget</code> command to recursively download the content from the FTP server:</p>
+                        <pre class="highlight"><code>wget -m --no-passive ftp://ceil:qwer1234@ip:21</code></pre>
+                        <img src="weget1.png" alt="weget result">
+                        <p style="color:#ffc107;">When nothing was downloaded, I decided to try the other FTP port, 2121:</p>
+                        <pre class="highlight"><code>wget -m --no-passive ftp://ceil:qwer1234@ip:2121</code></pre>
+                        <img src="weget2.png" alt="weget result for port 2121">
+                    </section>
+                
+                    <section>
+                        <h5>Inspecting Hidden Files</h5>
+                        <p style="color:#ffc107;">Upon initially trying to list the contents of the directory with the <code>ls</code> command, I noticed an anomaly. Considering the directory's size, something should have been downloaded. This led me to examine for hidden files.</p>
+                        <pre class="highlight"><code>ls -la</code></pre>
+                        <img src="ls-la.png" alt="ls-la result">
+                        <p style="color:#ffc107;">Discovering a hidden private SSH key, I decided to inspect its contents:</p>
+                        <pre class="highlight"><code>cat .ssh/id_rsa</code></pre>
+                        <img src="id_rsa.png" alt="SSH Key content">
+                    </section>
+                
+                    <section>
+                        <h5>SSH Access</h5>
+                        <p style="color:#ffc107;">After obtaining the private SSH key, the logical step was to use it for authentication. Here's how I proceeded:</p>
+                        <ol>
+                            <li>Save the key into a file named <code>id_rsa</code>.</li>
+                            <li>Ensure the key has the correct permissions:</li>
+                            <pre class="highlight"><code>chmod 600 id_rsa</code></pre>
+                            <li>Attempt SSH access using the key:</li>
+                            <pre class="highlight"><code>ssh -i id_rsa ceil@10.129.110.71</code></pre>
+                        </ol>
+                        <p style="color:#ffc107;">After successfully logging in, it was time to search for the flag. Notably, the files highlighted in blue were prime suspects for containing the hidden flag.</p>
+                        <img src="ssh.png" alt="SSH session">
+                    </section>
                       <!-- section title end -->
                     </div>
                     <!-- col end -->
@@ -562,7 +603,7 @@
                   <ul class="main-menu">
                     <!-- menu item -->
                     <li class="menu-item current-menu-item">
-                      <a href="index.html">Home</a>
+                      <a href="htbsolution1.html">Footprinting Lab Easy</a>
                     </li>
                     <!-- menu item -->
                     <li class="menu-item menu-item-has-children">
@@ -571,7 +612,7 @@
                       <ul class="sub-menu">
                         <!-- lvl 2 nav link -->
                         <li class="menu-item">
-                          <a href="htbsolution1.html">Footprinting Lab Easy</a>
+                          <a href="index.html">Home</a>
                         </li>
                         <!-- lvl 2 nav link -->
                         <li class="menu-item">
@@ -580,8 +621,6 @@
                       </ul>
                       <!-- sub menu end -->
                     </li>
-                    
-                  
                     <!-- menu item -->
                     <li class="menu-item">
                       <a href="contact.html">Contact</a>
